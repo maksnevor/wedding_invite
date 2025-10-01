@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
             ticks: 200,
             colors: ['#ff6b6b', '#ff8787', '#ffa5a5', '#ff4757', '#ee5a6f', '#f78fb3', '#fa8fb1']
         });
-        
+
         // Right side confetti
         confetti({
             particleCount: 100,
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
             ticks: 200,
             colors: ['#ff6b6b', '#ff8787', '#ffa5a5', '#ff4757', '#ee5a6f', '#f78fb3', '#fa8fb1']
         });
-        
+
         // Center confetti with hearts
         confetti({
             particleCount: 80,
@@ -53,26 +53,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }, 500);
     }, 1000);
 
-    // Click on envelope to open it manually
-    envelopeContainer.addEventListener('click', function () {
-        if (!this.classList.contains('open')) {
-            this.classList.add('open');
-            // Launch confetti when envelope opens
-            setTimeout(() => {
-                launchConfetti();
-            }, 500);
-        } else {
-            // Hide preloader and show main content when envelope is clicked again
-            preloader.classList.add('fade-out');
-            mainContent.classList.remove('hidden');
-            document.body.style.overflow = 'auto';
 
-            // Start typing animation after a short delay
-            setTimeout(() => {
-                startTypingAnimation();
-            }, 500);
-        }
-    });
 
     // Automatically hide preloader after 4 seconds
     setTimeout(() => {
@@ -105,22 +86,26 @@ function startTypingAnimation() {
 
     const text = typingElement.getAttribute('data-text');
     let index = 0;
-    typingElement.textContent = '';
+    typingElement.innerHTML = ''; // используем innerHTML, т.к. будет HTML вставка
 
     function typeCharacter() {
         if (index < text.length) {
-            typingElement.textContent += text.charAt(index);
+            const char = text.charAt(index);
+
+            if (char === '♥') {
+                typingElement.innerHTML += '<span class="green-heart">♥</span>';
+            } else {
+                typingElement.innerHTML += char;
+            }
+
             index++;
 
-            // Random delay between 80-150ms for more natural typing
             const delay = Math.random() * 70 + 80;
             setTimeout(typeCharacter, delay);
         } else {
-            // Typing complete - remove cursor after 2 seconds
             setTimeout(() => {
                 typingElement.classList.add('typing-complete');
 
-                // Show heart figures
                 const heartFigures = document.querySelector('.heart-figures');
                 if (heartFigures) {
                     heartFigures.classList.add('show');
@@ -131,6 +116,7 @@ function startTypingAnimation() {
 
     typeCharacter();
 }
+
 
 // Calendar Generation
 document.addEventListener('DOMContentLoaded', function () {
@@ -284,7 +270,7 @@ document.addEventListener('DOMContentLoaded', function () {
         setCursorPosition(input, pos);
     });
 
-    
+
     phoneInput.addEventListener('focus', function () {
         if (this.value === '') {
             this.value = '+375 (';

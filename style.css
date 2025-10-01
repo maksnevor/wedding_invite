@@ -6,7 +6,7 @@
 }
 
 :root {
-    --primary-color: #861523;
+    --primary-color: #096C24;
     --secondary-color: #FFFFFF;
     --beige-color: #f5e6d3;
     --orange-color: #ff8c42;
@@ -223,10 +223,10 @@ section {
 
 /* Names Section with Polaroids */
 .names-section {
-    background: url('paper-first-section.png');
+    /* background: url('paper-first-section.png'); */
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
+    /* background-repeat: no-repeat; */
     padding: 80px 40px;
     position: relative;
     overflow: hidden;
@@ -305,17 +305,19 @@ section {
 }
 
 .polaroid-image {
-    width: 220px;
+    width: 210px;
     height: 280px;
     background: #f0f0f0;
     margin-bottom: 15px;
+    overflow: hidden; /* на случай, если изображение чуть вылезает */
 }
 
 .placeholder-image {
     width: 100%;
     height: 100%;
-    background-size: cover;
-    background-position: center;
+    object-fit: cover;
+    object-position: center;
+    display: block;
 }
 
 .girl-image {
@@ -343,13 +345,17 @@ section {
 .date-item {
     font-size: 64px;
     font-weight: bold;
-    color: var(--primary-color);
+    color: #096C24;
     text-align: center;
 }
 
 .names-text {
     text-align: center;
     width: 100%;
+}
+
+.green-heart {
+    color: #096C24;
 }
 
 .couple-names {
@@ -882,9 +888,9 @@ section {
 }
 
 .submit-button:hover {
-    background-color: var(--beige-color);
+    background: var(--primary-color);
+    color: white;
     transform: translateY(-2px);
-    box-shadow: 0 7px 20px rgba(0, 0, 0, 0.3);
 }
 
 /* Contact Section */
@@ -1053,7 +1059,7 @@ section {
     .polaroid-image {
         width: 180px;
         height: 230px;
-        object-fit: contain;
+        overflow: hidden;
     }
 
     .heart-figure {
