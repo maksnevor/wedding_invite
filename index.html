@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Вы приглашены на свадьбу</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
 </head>
 
 <body>
@@ -13,16 +14,15 @@
     <div class="uc-preloader">
         <div class="us-setting">
             <div class="envelope-wrapper">
-                <div class="envelope">
-                    <div class="envelope-back"></div>
-                    <div class="envelope-letter">
-                        <div class="letter-content">
-                            <h2>ВЫ ПРИГЛАШЕНЫ</h2>
+                <div class="envelope-container">
+                    <div class="envelope-back">
+                        <div class="envelope-paper">
+                            <h2>Вы приглашены</h2>
                             <h3>НА СВАДЬБУ ❤️</h3>
                         </div>
+                        <div class="envelope-cover"></div>
+                        <div class="envelope-bottom"></div>
                     </div>
-                    <div class="envelope-front"></div>
-                    <div class="envelope-flap"></div>
                 </div>
             </div>
         </div>
@@ -30,7 +30,7 @@
 
     <!-- Main Content -->
     <!-- TODO:revert hidden class -->
-    <main class="main-content">
+    <main class="main-content hidden">
 
         <!-- Names and Photos Section -->
         <section class="names-section">

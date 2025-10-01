@@ -1,18 +1,66 @@
 // Envelope Animation and Page Loading
 document.addEventListener('DOMContentLoaded', function () {
     const preloader = document.querySelector('.uc-preloader');
-    const envelope = document.querySelector('.envelope');
+    const envelopeContainer = document.querySelector('.envelope-container');
     const mainContent = document.querySelector('.main-content');
+
+    // Confetti function using canvas-confetti library
+    function launchConfetti() {
+        // Left side confetti
+        confetti({
+            particleCount: 100,
+            angle: 60,
+            spread: 100,
+            origin: { x: 0, y: 1 },
+            startVelocity: 60,
+            zIndex: 10000,
+            ticks: 200,
+            colors: ['#ff6b6b', '#ff8787', '#ffa5a5', '#ff4757', '#ee5a6f', '#f78fb3', '#fa8fb1']
+        });
+        
+        // Right side confetti
+        confetti({
+            particleCount: 100,
+            angle: 120,
+            spread: 100,
+            origin: { x: 1, y: 1 },
+            startVelocity: 60,
+            zIndex: 10000,
+            ticks: 200,
+            colors: ['#ff6b6b', '#ff8787', '#ffa5a5', '#ff4757', '#ee5a6f', '#f78fb3', '#fa8fb1']
+        });
+        
+        // Center confetti with hearts
+        confetti({
+            particleCount: 80,
+            angle: 90,
+            spread: 120,
+            origin: { x: 0.5, y: 1 },
+            startVelocity: 65,
+            zIndex: 10000,
+            ticks: 200,
+            shapes: ['heart', 'circle'],
+            colors: ['#ff4757', '#ee5a6f', '#f78fb3', '#ff6b6b']
+        });
+    }
 
     // Automatically open envelope after 1 second
     setTimeout(() => {
-        envelope.classList.add('open');
+        envelopeContainer.classList.add('open');
+        // Launch confetti when envelope opens
+        setTimeout(() => {
+            launchConfetti();
+        }, 500);
     }, 1000);
 
     // Click on envelope to open it manually
-    envelope.addEventListener('click', function () {
+    envelopeContainer.addEventListener('click', function () {
         if (!this.classList.contains('open')) {
             this.classList.add('open');
+            // Launch confetti when envelope opens
+            setTimeout(() => {
+                launchConfetti();
+            }, 500);
         } else {
             // Hide preloader and show main content when envelope is clicked again
             preloader.classList.add('fade-out');
@@ -91,7 +139,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (calendarBody) {
         // April 2026 calendar
         const daysInMonth = 30;
-        const firstDay = 3; // Wednesday (0 = Sunday, 1 = Monday, etc.)
+        const firstDay = 2; // Wednesday (0 = Sunday, 1 = Monday, etc.)
         const weddingDay = 24;
 
         // Add empty cells for days before the 1st

@@ -20,7 +20,10 @@ body {
     font-family: 'Georgia', 'Times New Roman', serif;
     color: var(--text-color);
     line-height: 1.6;
-    background: linear-gradient(135deg, #f8f8f8 0%, #e8e8e8 100%);
+    background: url('paper.png');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
     overflow-x: hidden;
 }
 
@@ -37,12 +40,13 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, var(--beige-color) 0%, var(--secondary-color) 100%);
+    background: linear-gradient(135deg, #e8e8e8 0%, #d0d0d0 100%);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 9999;
     transition: opacity 0.5s ease, visibility 0.5s ease;
+    overflow: hidden;
 }
 
 .uc-preloader.fade-out {
@@ -61,108 +65,121 @@ body {
 
 .envelope-wrapper {
     perspective: 1000px;
-}
-
-.envelope {
     position: relative;
-    width: 400px;
-    height: 280px;
-    cursor: pointer;
-    transform-style: preserve-3d;
-    transition: transform 0.6s ease;
 }
 
-.envelope:hover {
-    transform: scale(1.05);
-}
-
-.envelope-back,
-.envelope-front,
-.envelope-flap {
-    position: absolute;
-    width: 100%;
+.envelope-container {
+    margin: 0 auto;
+    padding: 2em 1em;
+    width: 30em;
     height: 100%;
+    position: relative;
+    overflow: visible;
+    display: block;
+    z-index: 0;
+    cursor: pointer;
 }
 
-.envelope-back {
-    background-color: var(--primary-color);
-    border-radius: 8px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-}
-
-.envelope-front {
-    background-color: var(--primary-color);
-    bottom: 0;
-    height: 50%;
-    border-radius: 0 0 8px 8px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.envelope-flap {
-    background-color: var(--primary-color);
+/* Triangle Cover/Flap */
+.envelope-cover {
+    position: absolute;
     top: 0;
-    height: 50%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    width: 0;
+    height: 0;
+    border: 240px solid transparent;
+    border-top: 180px solid var(--primary-color);
     transform-origin: top;
-    transition: transform 1s ease;
-    border-radius: 8px 8px 0 0;
-    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    z-index: 30;
+    transition: transform 0.5s ease-in-out, border-top-color 0.5s ease-in-out;
+}
+
+.envelope-container.open .envelope-cover {
+    border-top-color: #eee;
+    transform: translate(-50%, -0%) scaleY(-1);
     z-index: 10;
 }
 
-.envelope.open .envelope-flap {
-    transform: rotateX(-180deg);
-}
-
-.envelope-letter {
+/* White Paper/Letter */
+.envelope-paper {
+    width: 25em;
+    height: 15em;
     position: absolute;
-    width: 90%;
-    height: 85%;
-    background-color: var(--secondary-color);
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 4px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
-    transition: transform 1s ease 0.3s;
-    z-index: 5;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-}
-
-.envelope.open .envelope-letter {
-    transform: translate(-50%, -70%);
-}
-
-.letter-content {
+    display: block;
+    top: 2em;
+    left: 2.5em;
+    background: #fff;
+    z-index: 15;
     text-align: center;
-    opacity: 0;
-    transition: opacity 0.5s ease 1s;
+    padding: 5em 1em;
+    box-sizing: border-box;
+    transform: none !important;
+    transition: all 0.5s ease-in-out;
 }
 
-.envelope.open .letter-content {
-    opacity: 1;
+.envelope-container.open .envelope-paper {
+    top: -150px;
+    height: 350px;
+    z-index: 31;
+    transition-delay: 0.5s;
 }
 
-.letter-content h2 {
-    font-size: 32px;
+.envelope-paper h2,
+.envelope-paper h3 {
+    font-size: 28px;
     color: var(--primary-color);
     margin-bottom: 10px;
     font-weight: bold;
+    letter-spacing: 1px;
 }
 
-.letter-content h3 {
-    font-size: 24px;
-    color: var(--primary-color);
+.envelope-paper h3 {
+    font-size: 22px;
     font-weight: normal;
 }
+
+/* Back - main red envelope */
+.envelope-back {
+    display: block;
+    position: relative;
+    background: var(--primary-color);
+    top: 0;
+    width: 30em;
+    height: 17em;
+    content: "";
+    box-shadow: 0 0 1em rgba(68, 68, 136, 0.15);
+    z-index: 0;
+    transform: none !important;
+    transition: all 0.5s ease-in-out;
+}
+
+.envelope-container.open .envelope-back {
+    top: 50px;
+}
+
+/* Bottom Part */
+.envelope-bottom {
+    width: 0;
+    margin: 0 auto;
+    position: relative;
+    top: 0;
+    display: block;
+    border-left: 15em solid var(--primary-color);
+    border-right: 15em solid var(--primary-color);
+    border-bottom: 7em solid var(--primary-color);
+    border-top: 10em solid transparent;
+    transform: none !important;
+    z-index: 100;
+    transition: all 0.5s ease-in-out;
+}
+
 
 /* Main Content */
 .main-content {
     max-width: 100%;
     margin: 0 auto;
-    background-color: var(--secondary-color);
+    background-color: transparent;
     opacity: 1;
     transition: opacity 0.5s ease;
 }
@@ -206,7 +223,10 @@ section {
 
 /* Names Section with Polaroids */
 .names-section {
-    background: linear-gradient(135deg, #faf8f5 0%, #f0ebe5 100%);
+    background: url('paper-first-section.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     padding: 80px 40px;
     position: relative;
     overflow: hidden;
@@ -389,7 +409,7 @@ section {
 
 /* Story with Calendar Section */
 .story-calendar-section {
-    background: var(--secondary-color);
+    background: transparent;
     padding: 80px 40px;
 }
 
@@ -523,6 +543,10 @@ section {
     background-color: var(--primary-color);
     color: white;
     font-weight: bold;
+    width: 53px;
+    height: 53px;
+    max-width: 53px;
+    max-height: 53px;
     border: 3px solid var(--primary-color);
 }
 
@@ -537,7 +561,7 @@ section {
 
 /* Venue Section */
 .venue-section {
-    background: linear-gradient(135deg, #fff5f0 0%, #ffe8e0 100%);
+    background: transparent;
 }
 
 .venue-text {
@@ -601,7 +625,7 @@ section {
 
 /* Dress Code Section */
 .dress-code-section {
-    background: var(--secondary-color);
+    background: transparent;
 }
 
 .dress-intro {
@@ -663,7 +687,7 @@ section {
 
 /* Timeline Section */
 .timeline-section {
-    background: linear-gradient(135deg, #f0f4ff 0%, #e5edff 100%);
+    background: transparent;
 }
 
 .timeline {
@@ -702,7 +726,7 @@ section {
 
 /* Wishes Section */
 .wishes-section {
-    background: var(--secondary-color);
+    background: transparent;
 }
 
 .wish-blocks {
@@ -866,7 +890,7 @@ section {
 
 /* Contact Section */
 .contact-section {
-    background: linear-gradient(135deg, #fff5f5 0%, #ffe5e5 100%);
+    background: transparent;
 }
 
 .contact-section p {
@@ -896,7 +920,7 @@ section {
 
 /* Countdown Section */
 .countdown-section {
-    background: var(--secondary-color);
+    background: transparent;
     padding: 80px 40px;
 }
 
@@ -913,17 +937,18 @@ section {
 }
 
 .countdown-number {
-    font-size: 64px;
+    font-size: 34px;
     font-weight: bold;
     color: var(--primary-color);
-    width: 120px;
-    height: 120px;
+    width: 80px;
+    height: 80px;
     border: 4px solid var(--primary-color);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0 auto 10px;
+    box-sizing: border-box;
 }
 
 .countdown-label {
@@ -939,17 +964,71 @@ section {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .envelope {
+    .envelope-container {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .envelope-back {
         width: 300px;
-        height: 210px;
+        height: 180px;
+        position: relative;
+        margin: 0 auto;
+        left: 0;
+        transform: none;
     }
 
-    .letter-content h2 {
-        font-size: 24px;
+    .envelope-paper {
+        width: 260px;
+        height: 156px;
+        left: 20px;
+        top: 12px;
+        padding: 3em 1em;
+        transform: none;
     }
 
-    .letter-content h3 {
-        font-size: 18px;
+    .envelope-cover {
+        border: 150px solid transparent;
+        border-top: 120px solid var(--primary-color);
+        transform: translate(-50%, 0%);
+    }
+
+    .envelope-container.open .envelope-cover {
+        border-top-color: #eee;
+        transform: translate(-50%, -0%) scaleY(-1);
+        z-index: 10;
+    }
+
+    .envelope-bottom {
+        border-left: 150px solid var(--primary-color);
+        border-right: 150px solid var(--primary-color);
+        border-bottom: 70px solid var(--primary-color);
+        border-top: 110px solid transparent;
+        transform: none !important;
+    }
+
+    .envelope-container.open .envelope-back {
+        top: 90px;
+    }
+
+    .envelope-container.open .envelope-paper {
+        top: -150px;
+        height: 300px;
+        z-index: 31;
+        transition-delay: 0.5s;
+    }
+
+    .envelope-paper h2 {
+        font-size: 20px;
+    }
+
+    .envelope-paper h3 {
+        font-size: 16px;
     }
 
     section {
@@ -1043,17 +1122,37 @@ section {
 }
 
 @media (max-width: 480px) {
-    .envelope {
-        width: 250px;
-        height: 175px;
+    .envelope-back {
+        width: 280px;
+        height: 170px;
     }
 
-    .letter-content h2 {
-        font-size: 20px;
+    .envelope-paper {
+        width: 240px;
+        height: 146px;
+        left: 20px;
+        top: 12px;
+        padding: 2.5em 0.8em;
     }
 
-    .letter-content h3 {
-        font-size: 16px;
+    .envelope-cover {
+        border: 140px solid transparent;
+        border-top: 110px solid var(--primary-color);
+    }
+
+    .envelope-bottom {
+        border-left: 140px solid var(--primary-color);
+        border-right: 140px solid var(--primary-color);
+        border-bottom: 65px solid var(--primary-color);
+        border-top: 100px solid transparent;
+    }
+
+    .envelope-paper h2 {
+        font-size: 18px;
+    }
+
+    .envelope-paper h3 {
+        font-size: 15px;
     }
 
     .section-title {
