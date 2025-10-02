@@ -29,7 +29,7 @@ body {
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
-    overflow-x: hidden;
+    overflow-x: hidden !important;
 }
 
 /* Handwritten Font */
@@ -934,6 +934,7 @@ section {
 
 /* Countdown Section */
 .countdown-section {
+    overflow: hidden;
     background: transparent;
     padding: 80px 40px;
 }
