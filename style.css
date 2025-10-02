@@ -1,4 +1,9 @@
 /* Reset and Base Styles */
+
+html {
+    overflow-x: hidden;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -247,11 +252,13 @@ section {
 }
 
 .row-top {
+    position: relative;
     justify-content: space-between;
     padding: 0 100px;
 }
 
 .row-bottom {
+    position: relative;
     justify-content: space-between;
     padding: 0 100px;
 }
@@ -758,7 +765,7 @@ section {
 
 /* RSVP Form Section */
 .rsvp-section {
-
+    position: relative;
     padding: 80px 40px;
 }
 
@@ -873,6 +880,7 @@ section {
 }
 
 .submit-button {
+    position: relative;
     width: 100%;
     padding: 18px;
     font-size: 20px;
@@ -895,6 +903,7 @@ section {
 
 /* Contact Section */
 .contact-section {
+    position: relative;
     background: transparent;
 }
 
@@ -1063,8 +1072,8 @@ section {
     }
 
     .heart-figure {
-        width: 60px;
-        height: 75px;
+        width: 100px;
+        height: 120px;
     }
 
     .vinyl-container {
@@ -1178,8 +1187,8 @@ section {
     }
 
     .heart-figure {
-        width: 50px;
-        height: 60px;
+        width: 100px;
+        height: 120px;
     }
 
     .heart-figures {
@@ -1214,4 +1223,141 @@ section {
         width: 70px;
         height: 70px;
     }
+}
+
+.green-heart-2 {
+    position: absolute;
+    left: 50%;
+    width: 25px;
+    rotate: -30deg;
+    height: 60px;
+    transform: translate(-400%, -150%);
+}
+
+.timeline-item-green-heart {
+    position: relative;
+}
+
+.green-heart-1 {
+    position: absolute;
+    rotate: 20deg;
+    width: 25px;
+    height: 60px;
+    left: 50%;
+    transform: translate(500%, -150%);
+}
+
+.green-heart-arrow-1 {
+    position: absolute;
+    rotate: 20deg;
+    width: 80px;
+    height: 60px;
+    top: -5%;
+    left: 5%;
+    transform: translate(-50%, -50%);
+}
+
+.bow-icon {
+    width: 136px;
+    height: 102px;
+    margin: 0 auto;
+    margin-bottom: 40px;
+}
+
+.bow-icon-2 {
+    position: absolute;
+    width: 90px;
+    height: 67px;
+    left: 50%;
+    transform: translate(-200%, 20%);
+}
+
+.birds-icon {
+    width: 160px;
+    height: 80px;
+    margin: 0 auto;
+    margin-bottom: 40px;
+}
+
+.dress-code-title {
+    position: relative;
+}
+
+.diamond-icon-1 {
+    position: absolute;
+    width: 100px;
+    height: 75px;
+    rotate: 40deg;
+    transform: translate(10%, 0%);
+}
+
+.diamond-icon-2 {
+    position: absolute;
+    width: 80px;
+    height: 60px;
+    rotate: 40deg;
+    right: 0;
+    top: 0;
+    transform: translate(-10%, -80%);
+}
+
+.hearts-sparkles-icon-1 {
+    position: absolute;
+    width: 200px;
+    height: 150px;
+    left: 50%;
+    transform: translate(40%, -80%);
+}
+
+.story-calendar-title {
+    position: relative;
+}
+
+.hearts-sparkles-icon-2 {
+    position: absolute;
+    width: 200px;
+    height: 150px;
+    rotate: -20deg;
+    right: 50%;
+    transform: translate(-90%, 10%);
+}
+
+.story-calendar-text {
+    position: relative;
+    z-index: 10;
+}
+
+.hearts-sparkles-icon-3 {
+    position: absolute;
+    z-index: 0;
+    width: 200px;
+    height: 150px;
+    rotate: 20deg;
+    top: 0;
+    right: 0;
+    transform: translate(20%, -90%);
+}
+
+.map-button {
+    position: relative;
+}
+
+.hearts-sparkles-icon-4 {
+    position: absolute;
+    width: 200px;
+    height: 150px;
+    rotate: 20deg;
+    top: 0;
+    right: 0;
+    transform: translate(80%, -120%);
+}
+
+.hearts-sparkles-icon-5 {
+    position: absolute;
+    width: 200px;
+    height: 150px;
+    rotate: -30deg;
+    top: 0;
+    right: 50%;
+    transform: translate(-50%, -100%);
 }
