@@ -1,9 +1,4 @@
 /* Reset and Base Styles */
-
-html {
-    overflow-x: hidden;
-}
-
 * {
     margin: 0;
     padding: 0;
@@ -196,6 +191,7 @@ body {
 
 /* Sections */
 section {
+    overflow-x: hidden !important;
     padding: 60px 40px;
     text-align: center;
     position: relative;
