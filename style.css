@@ -254,6 +254,8 @@ section {
 }
 
 .row-bottom {
+    display: flex;
+    justify-content: end !important;
     position: relative;
     justify-content: space-between;
     padding: 0 100px;
@@ -340,6 +342,7 @@ section {
 }
 
 .wedding-date-vertical {
+    position: relative;
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -507,6 +510,7 @@ section {
 
 /* Calendar */
 .calendar-container {
+    position: relative;
     display: flex;
     justify-content: center;
     margin: 50px 0;
@@ -1262,6 +1266,23 @@ section {
         width: 60px;
         height: 60px;
     }
+
+    .sparkle-icon {
+        position: absolute;
+        width: 20px !important;
+        height: 20px !important;
+        top: 0;
+        left: 50%;
+        transform: translate(500%, 0%) !important;
+    }
+
+    .lips-icon {
+        position: absolute;
+        width: 40px;
+        height: 30px;
+        left: 50%;
+        transform: translate(350%, -80%) !important;
+    }
 }
 
 .green-heart-2 {
@@ -1464,4 +1485,132 @@ section {
     top: 0;
     right: 50%;
     transform: translate(350%, -55%);
+}
+
+.heart-2-icon {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    top: 0;
+    left: 50%;
+    rotate: -30deg;
+    z-index: 50;
+    transform: translate(-240%, -210%);
+}
+
+.double-heart-arrow-icon {
+    position: absolute;
+    width: 120px;
+    height: 60px;
+    top: 0;
+    left: 50%;
+    rotate: -30deg;
+    z-index: 50;
+    transform: translate(-120%, -210%);
+}
+
+.venue-title {
+    position: relative;
+}
+
+.sparkle-icon {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: 0;
+    left: 50%;
+    transform: translate(550%, 0%);
+}
+
+.contact-title {
+    position: relative;
+}
+
+.envelope-icon {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    top: 0;
+    left: 50%;
+    rotate: -20deg;
+    transform: translate(170%, 20%);
+}
+
+.timeline-title {
+    position: relative;
+}
+
+.cloud-icon {
+    position: absolute;
+    width: 40px;
+    height: 65px;
+    top: 0;
+    left: 50%;
+    rotate: 20deg;
+    transform: translate(350%, -20%);
+}
+
+.jar-icon {
+    position: absolute;
+    width: 50px;
+    height: 65px;
+    top: 0;
+    right: 50%;
+    rotate: -20deg;
+    transform: translate(-150%, -100%);
+}
+
+.ring-icon {
+    position: absolute;
+    width: 65px;
+    height: 105px;
+    top: 50%;
+    left: 50%;
+    rotate: -30deg;
+    transform: translate(-150%, -150%);
+}
+
+.ceremony-title {
+    position: relative;
+}
+
+.ring-icon-2 {
+    position: absolute;
+    width: 40px;
+    height: 60px;
+    top: 50%;
+    left: 50%;
+    rotate: -30deg;
+    transform: translate(-300%, -300%);
+}
+
+.hand-heart-icon {
+    position: absolute;
+    width: 80px;
+    height: 60px;
+    top: 50%;
+    right: 50%;
+    rotate: -30deg;
+    transform: translate(200%, 200%);
+}
+
+.hands-heart-icon-2 {
+    position: absolute;
+    width: 80px;
+    height: 60px;
+    right: 50%;
+    rotate: -30deg;
+    transform: translate(200%, 0%);
+}
+
+.timeline-time-2 {
+    position: relative;
+}
+
+.lips-icon {
+    position: absolute;
+    width: 40px;
+    height: 30px;
+    left: 50%;
+    transform: translate(600%, -80%);
 }
