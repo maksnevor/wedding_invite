@@ -1135,6 +1135,17 @@ section {
     }
 }
 
+@media (max-width: 560px) {
+    .flowers-icon {
+        position: absolute;
+        width: 95px;
+        height: 173px;
+        top: 0;
+        right: 50%;
+        transform: translate(250%, -55%) !important;
+    }
+}
+
 @media (max-width: 480px) {
     .calendar {
         max-width: 350px;
@@ -1440,4 +1451,17 @@ section {
     top: 0;
     right: 50%;
     transform: translate(160%, -65%);
+}
+
+.flowers-title {
+    position: relative;
+}
+
+.flowers-icon {
+    position: absolute;
+    width: 95px;
+    height: 173px;
+    top: 0;
+    right: 50%;
+    transform: translate(350%, -55%);
 }
