@@ -22,7 +22,6 @@ body {
     line-height: 1.6;
     background: url('paper.png');
     background-size: cover;
-    background-attachment: fixed;
     background-position: center;
     overflow-x: hidden !important;
 }
