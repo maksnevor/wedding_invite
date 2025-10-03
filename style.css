@@ -774,12 +774,14 @@ section {
 
 /* Jumping Arrow Animation */
 .arrow-container {
-    display: flex;
-    justify-content: center;
     margin: 30px 0;
     height: 60px;
-    rotate: -90deg;
+    max-height: 60px;
     position: relative;
+}
+
+.arrow-container img {
+    rotate: -90deg;
 }
 
 .jumping-arrow {
